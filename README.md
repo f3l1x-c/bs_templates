@@ -4,7 +4,7 @@
 
 - [argument validation](/argument_validation/argument_validation.c) for {strtod, strtof, strtol, strtold, strtoll, strtoul, strtoull}
 
-- [Client/Server](/ClientServer/) using TCP sockets
+- [Client/Server](/client_server/) using TCP sockets
 
 - [Makefile](/makefile/)
 
