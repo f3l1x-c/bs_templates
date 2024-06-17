@@ -10,7 +10,7 @@
 
 - pipes [named](/pipes/named_pipe.c) [unnamed](/pipes/unnamed_pipe.c) using fork
 
-- [signal](/signal/sigaction.c)
+- [signal](/signal_handling/sigaction.c)
 
 - [thread_handling](/thread_handling/pthread_handling.c)
 
@@ -18,4 +18,4 @@
 
 - semaphore [unnamed](/semaphore/semaphore.c) [named](/semaphore/named_semaphore.c)
 
-- [mutex](/mutex/mutex.c) [mutex+cond](/mutex/mutex_cond.c)
+- [mutex](/pthread_mutex/mutex.c) [mutex+cond](/pthread_mutex/mutex_cond.c)

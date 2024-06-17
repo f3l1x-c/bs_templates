@@ -17,7 +17,7 @@ void signal_handler(int signum) {
 }
 
 int main(void) {
-	// use sigaction to register signal handler
+	// use sigaction to register signal_handling handler
 	struct sigaction sa;
 	sa.sa_handler = signal_handler;
 	sigemptyset(&sa.sa_mask);
