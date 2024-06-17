@@ -8,7 +8,7 @@
 #include <sys/wait.h>
 #include <errno.h>
 
-#define FIFO_PATH_PREFIX "/tmp/my_fifo_path"
+#define FIFO_PATH_PREFIX "/tmp/my_fifo_path/"
 #define FIFO_NAME "fifo_name"
 #define BUFFER_SIZE 1024
 
@@ -23,7 +23,7 @@ int main() {
     }
     // Create the named pipe (FIFO)
     char fifo_path[100];
-    snprintf(fifo_path, sizeof(fifo_path), "%s/%s", FIFO_PATH_PREFIX, FIFO_NAME);
+    snprintf(fifo_path, sizeof(fifo_path), "%s%s", FIFO_PATH_PREFIX, FIFO_NAME);
     if (mkfifo(fifo_path, 0666) == -1) {
         fprintf(stderr, "error:mkfifo\n");
         exit(EXIT_FAILURE);
@@ -40,8 +40,6 @@ int main() {
         int fd;
 
         // Open the FIFO for reading
-        char fifo_path[100];
-        snprintf(fifo_path, sizeof(fifo_path), "%s/%s", FIFO_PATH_PREFIX, FIFO_NAME);
         fd = open(fifo_path, O_RDONLY);
         if (fd == -1) {
             perror("open");
@@ -64,8 +62,6 @@ int main() {
         int fd;
 
         // Open the FIFO for writing
-        char fifo_path[100];
-        snprintf(fifo_path, sizeof(fifo_path), "%s/%s", FIFO_PATH_PREFIX, FIFO_NAME);
         fd = open(fifo_path, O_WRONLY);
         if (fd == -1) {
             perror("open");
