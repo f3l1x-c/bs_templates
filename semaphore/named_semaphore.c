@@ -1,8 +1,16 @@
+//
+// Created by john on 17.06.24.
+//
+
 #include <pthread.h>
 #include <semaphore.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <fcntl.h>      // For O_CREAT, O_EXCL
+
+#define SEMAPHORE_NAME "/my_named_semaphore"
+#define NUM_THREADS 5
 
 typedef struct {
   sem_t *semaphore;
@@ -30,34 +38,43 @@ void *thread_function(void *arg) {
 }
 
 int main() {
-  pthread_t threads[5];
-  thread_data_t thread_data[5];
-  sem_t semaphore;
+  pthread_t threads[NUM_THREADS];
+  thread_data_t thread_data[NUM_THREADS];
+  sem_t *semaphore;
 
-  if (sem_init(&semaphore, 0, 1) != 0) {
-    perror("sem_init");
+  // Create or open the named semaphore
+  semaphore = sem_open(SEMAPHORE_NAME, O_CREAT | O_EXCL, 0666, 1);
+  if (semaphore == SEM_FAILED) {
+    perror("sem_open");
     exit(EXIT_FAILURE);
   }
 
-  for (int i = 0; i < 5; ++i) {
-    thread_data[i].semaphore = &semaphore;
-    thread_data[i].thread_id = i + 1;
-    if (pthread_create(&threads[i], NULL, thread_function, &thread_data[i]) !=
-        0) {
+  // Create threads
+  for (int i = 0; i < NUM_THREADS; ++i) {
+    thread_data[i] = (thread_data_t){.semaphore = semaphore,
+                    .thread_id = i + 1};
+    if (pthread_create(&threads[i], NULL, thread_function, &thread_data[i]) != 0) {
       perror("pthread_create");
       exit(EXIT_FAILURE);
     }
   }
 
-  for (int i = 0; i < 5; ++i) {
+  // Wait for threads to finish
+  for (int i = 0; i < NUM_THREADS; ++i) {
     if (pthread_join(threads[i], NULL) != 0) {
       perror("pthread_join");
       exit(EXIT_FAILURE);
     }
   }
 
-  if (sem_destroy(&semaphore) != 0) {
-    perror("sem_destroy");
+  // Close and unlink the named semaphore
+  if (sem_close(semaphore) != 0) {
+    perror("sem_close");
+    exit(EXIT_FAILURE);
+  }
+
+  if (sem_unlink(SEMAPHORE_NAME) != 0) {
+    perror("sem_unlink");
     exit(EXIT_FAILURE);
   }
 
