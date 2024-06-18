@@ -23,6 +23,7 @@ void* thread_function() {
 * */
 void* thread_function_args(void* args) {
     thread_arg* arg = (thread_arg*)args;
+
     // do something
     return NULL;
 }

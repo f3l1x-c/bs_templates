@@ -1,6 +1,3 @@
-//
-// Created by felix on 18.06.24.
-//
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
@@ -186,5 +183,10 @@ int main(int argc, char* argv[]) {
     free(flowers);
     pthread_barrier_destroy(&state->barrier);
     pthread_mutex_destroy(&state->mutex);
+
+    while (!myqueue_is_empty(state->flower_queue)) {
+        myqueue_pop(state->flower_queue);
+    }
+    free(state);
     return 0;
 }

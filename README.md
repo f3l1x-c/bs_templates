@@ -18,4 +18,4 @@
 
 - semaphore [unnamed](/semaphore/semaphore.c) [named](/semaphore/named_semaphore.c)
 
-- [mutex](/pthread_mutex/mutex.c) [mutex+cond](/pthread_mutex/mutex_cond.c)
+- [mutex](/pthread_mutex_cond/mutex.c) [mutex+cond](/pthread_mutex_cond/mutex_cond.c)
