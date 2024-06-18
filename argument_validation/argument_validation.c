@@ -19,7 +19,7 @@ double validate_d_argument(char* str) {
     if (errno == ERANGE) {
         fprintf(stderr, "Failed double argument validation.\n");
         exit(EXIT_FAILURE);
-    } else if (endp == str || endp != (void *)0) {
+    } else if (endp == str || *endp != '\0') {
         fprintf(stderr, "Failed double argument validation.\n");
         exit(EXIT_FAILURE);
     }
@@ -36,10 +36,10 @@ float validate_f_argument(char* str) {
 
     float res = strtof(str, &endp);
     if (errno == ERANGE) {
-        fprintf(stderr, "Failed double argument validation.\n");
+        fprintf(stderr, "Failed float argument validation.\n");
         exit(EXIT_FAILURE);
-    } else if (endp == str || endp != (void *)0) {
-        fprintf(stderr, "Failed double argument validation.\n");
+    } else if (endp == str || *endp != '\0') {
+        fprintf(stderr, "Failed float argument validation.\n");
         exit(EXIT_FAILURE);
     }
     return res;
@@ -56,10 +56,10 @@ long int validate_l_argument(char* str) {
 
     long int res = strtol(str, &endp, base);
     if (errno == ERANGE) {
-        fprintf(stderr, "Failed double argument validation.\n");
+        fprintf(stderr, "Failed long argument validation.\n");
         exit(EXIT_FAILURE);
-    } else if (endp == str || endp != (void *)0) {
-        fprintf(stderr, "Failed double argument validation.\n");
+    } else if (endp == str || *endp != '\0') {
+        fprintf(stderr, "Failed long argument validation.\n");
         exit(EXIT_FAILURE);
     }
     return res;
@@ -75,10 +75,10 @@ long double validate_ld_argument(char* str) {
 
     long double res = strtold(str, &endp);
     if (errno == ERANGE) {
-        fprintf(stderr, "Failed double argument validation.\n");
+        fprintf(stderr, "Failed long double argument validation.\n");
         exit(EXIT_FAILURE);
-    } else if (endp == str || endp != (void *)0) {
-        fprintf(stderr, "Failed double argument validation.\n");
+    } else if (endp == str || *endp != '\0') {
+        fprintf(stderr, "Failed long double argument validation.\n");
         exit(EXIT_FAILURE);
     }
     return res;
@@ -95,10 +95,10 @@ long long int validate_ll_argument(char* str) {
 
     long long int res = strtoll(str, &endp, base);
     if (errno == ERANGE) {
-        fprintf(stderr, "Failed double argument validation.\n");
+        fprintf(stderr, "Failed long long argument validation.\n");
         exit(EXIT_FAILURE);
-    } else if (endp == str || endp != (void *)0) {
-        fprintf(stderr, "Failed double argument validation.\n");
+    } else if (endp == str || *endp != '\0') {
+        fprintf(stderr, "Failed long long argument validation.\n");
         exit(EXIT_FAILURE);
     }
     return res;
@@ -115,10 +115,10 @@ unsigned long int validate_ul_argument(char* str) {
 
     unsigned long int res = strtoul(str, &endp, base);
     if (errno == ERANGE) {
-        fprintf(stderr, "Failed double argument validation.\n");
+        fprintf(stderr, "Failed unsigned long argument validation.\n");
         exit(EXIT_FAILURE);
-    } else if (endp == str || endp != (void *)0) {
-        fprintf(stderr, "Failed double argument validation.\n");
+    } else if (endp == str || *endp != '\0') {
+        fprintf(stderr, "Failed unsigned long argument validation.\n");
         exit(EXIT_FAILURE);
     }
     return res;
@@ -135,10 +135,10 @@ unsigned long long int validate_ull_argument(char *str) {
 
     unsigned long long int res = strtoull(str, &endp, base);
     if (errno == ERANGE) {
-        fprintf(stderr, "Failed double argument validation.\n");
+        fprintf(stderr, "Failed unsigned long long argument validation.\n");
         exit(EXIT_FAILURE);
-    } else if (endp == str || endp != (void *)0) {
-        fprintf(stderr, "Failed double argument validation.\n");
+    } else if (endp == str || *endp != '\0') {
+        fprintf(stderr, "Failed unsigned long long argument validation.\n");
         exit(EXIT_FAILURE);
     }
     return res;
