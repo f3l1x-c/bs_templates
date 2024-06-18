@@ -6,6 +6,8 @@
 #include <stdlib.h>
 #include <arpa/inet.h>
 #include <pthread.h>
+#include <string.h>
+#include <unistd.h>
 
 #define MSG_SIZE 1024
 
