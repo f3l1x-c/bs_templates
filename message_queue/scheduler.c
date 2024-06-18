@@ -5,6 +5,7 @@
 #include <errno.h>
 #include <fcntl.h>
 #include <mqueue.h>
+#include <stdboolh>
 #include <poll.h>
 #include <stdio.h>
 #include <stdlib.h>
