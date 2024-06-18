@@ -12,9 +12,9 @@
 *     mq_open:  returns -1 and errno on error => EACCES, EEXIST
 *     mq_send:  returns -1 and errno on error => EAGAIN
 * */
-void send_message(char *buffer, int priority){
-    // Open the message queue
-	mqd_t mq = mq_open(argv[1], O_WRONLY);
+void send_message(char *buffer, int priority, char *path){
+    // Open the message queue - O_WRONLY, O_RDONLY, O_RDWR
+	mqd_t mq = mq_open(path, O_WRONLY);
 	if (mq == -1) {
 		fprintf(stderr, "Error opening message queue!\n");
         exit(EXIT_FAILURE);
@@ -39,8 +39,10 @@ int main(int argc, char* argv[]) {
 
     int priority = atoi(argv[2]);
 
+	char *path = "/csxxxxxx";
+
     // call function
-	send_message(argv[1], priority);
+	send_message(argv[1], priority, path);
 
 	// Close the message queue
 	mq_close(mq);
