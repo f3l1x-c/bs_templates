@@ -104,6 +104,8 @@ Code Example: [Barrier](/pthread_barrier/pthread_barrier.c)
 - Laden von Code, der zur Kompilierzeit nicht verfügbar war (Plugins)
 - Lazy loading von Code -> laden nur bei tatsächlichem Bedarf
 
+![image](/images/dyn_linking.png)
+
 ### Static Shared Libraries
 - eine systemweite Vorabzuweisung innerhalb des Adressraums erforderlich
 - Linker verknüpft das Programm mit der Bibliothek, enthält aber nicht den eigentlichen Code
