@@ -101,8 +101,11 @@ void *bee_thread_function(void* args) {
         }
         pthread_barrier_wait(&state->barrier);
 
-        if(state->hive_destroyed)
+        if(state->hive_destroyed){
             break;
+        }
+        
+        pthread_barrier_wait(&state->barrier);
     }
     return NULL;
 }
