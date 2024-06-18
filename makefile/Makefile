@@ -1,10 +1,17 @@
-CFLAGS += -std=c11 -Wall -Wextra -Werror
+.PHONY: all clean
 
+CC = gcc
+CFLAGS += -std=c11 -Wall -Wextra -Werror
 TARGETS = filename
 
-.PHONY: all
 all: $(TARGETS)
 
-.PHONY: clean
+filename: filename.o
+	$(CC) $^ -o $@
+
+filename.o: filename.c
+	@echo "Compiling $(basename $@):"
+	$(CC) $(CFLAGS) -c $< -o $@
+
 clean:
 	$(RM) $(TARGETS) *.o
