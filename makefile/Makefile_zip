@@ -1,0 +1,13 @@
+
+.PHONY: clean zip
+
+all: clean zip
+
+clean:
+	make clean -C task1	
+	make clean -C task2
+	make clean -C task3
+
+zip:
+	$(RM) *.zip 
+	zip -r test_csbaxxxx.zip task1 task2 task3
