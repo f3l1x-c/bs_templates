@@ -120,3 +120,14 @@ Code Example: [Barrier](/pthread_barrier/pthread_barrier.c)
 ---
 
 - Position Independent Code -> Code muss an jeder virtuellen Adresse ausführbar sein
+
+## Miscellaneus
+[Thread Handling](/thread_handling/pthread_handling.c)</br>
+[Signal Handling](/signal_handling/sigaction.c)</br>
+[Fork](/fork/fork.c)</br>
+[Argument Validation](/argument_validation/argument_validation.c)</br>
+[Queue](/datastructures/myqueue.h)</br>
+[Queue with Pair](/datastructures/myqueue_pair.h)</br>
+[Thread Pool](/thread_pool/thread_pool.c)</br>
+[Client Server](/client_server)</br>
+[Makefiles](/makefile)
