@@ -47,7 +47,7 @@ Code Example: [Unnamed Pipe](/pipes/unnamed_pipe.c)
 - können von jedem Prozess geöffnet werden
 - müssen an beiden Enden geöffnet werden bevord Daten ausgetauscht werden können
 
-Code Example: [Named Pipe](/pipes/named_pipe.c)
+Code Example: [Named Pipe](/pipes/named_pipe.c), [Functions](/pipes/fifo_functions.h)
 
 <!-- TOC --><a name="message-queue"></a>
 ## Message Queue
@@ -57,7 +57,7 @@ Code Example: [Named Pipe](/pipes/named_pipe.c)
 - erlaubt verschiedene Prioritäten für messages
   - higher priority message werden zuerst gesendet
 
-Code Example: [Scheduler](/message_queue/scheduler.c) [Service](/message_queue/service.c)
+Code Example: [Scheduler](/message_queue/scheduler.c), [Service](/message_queue/service.c), [Functions](/message_queue/mq_functions.h)
 
 <!-- TOC --><a name="shared-memory"></a>
 ## Shared Memory
@@ -165,8 +165,7 @@ Code Example: [Barrier](/pthread_barrier/pthread_barrier.c)
 [Signal Handling](/signal_handling/sigaction.c)</br>
 [Fork](/fork/fork.c)</br>
 [Argument Validation](/argument_validation/argument_validation.c)</br>
-[Queue](/datastructures/myqueue.h)</br>
-[Queue with Pair](/datastructures/myqueue_pair.h)</br>
+[Queue](/datastructures/myqueue.h), [Queue with Pair](/datastructures/myqueue_pair.h)</br>
 [Thread Pool](/thread_pool/thread_pool.c)</br>
-[Client Server](/client_server)</br>
+[Client Server](/client_server), [Socket Functions](/client_server/socket_functions.h)</br>
 [Makefiles](/makefile)
